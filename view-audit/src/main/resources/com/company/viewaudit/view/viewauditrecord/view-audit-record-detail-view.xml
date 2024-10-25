@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<view xmlns="http://jmix.io/schema/flowui/view"
+      title="msg://viewAuditRecordDetailView.title"
+      focusComponent="form">
+    <data>
+        <instance id="viewAuditRecordDc"
+                  class="com.company.viewaudit.entity.ViewAuditRecord">
+            <fetchPlan extends="_base"/>
+            <loader id="viewAuditRecordDl"/>
+        </instance>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+    </facets>
+    <actions>
+        <action id="saveAction" type="detail_saveClose"/>
+        <action id="closeAction" type="detail_close"/>
+    </actions>
+    <layout>
+        <formLayout id="form" dataContainer="viewAuditRecordDc">
+            <textField id="viewIdField" property="viewId"/>
+            <textField id="usernameField" property="username"/>
+            <dateTimePicker id="accessingTimestampField" property="accessingTimestamp"/>
+        </formLayout>
+        <hbox id="detailActions">
+            <button id="saveAndCloseBtn" action="saveAction"/>
+            <button id="closeBtn" action="closeAction"/>
+        </hbox>
+    </layout>
+</view>
